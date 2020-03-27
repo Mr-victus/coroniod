@@ -5,8 +5,8 @@
  * @format
  * @flow
  */
+import React, { useEffect } from 'react';
 
-import React from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -24,8 +24,30 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import NavigationApp from './Navigation/navigation';
-
+import messaging from '@react-native-firebase/messaging';
+import { firebase } from '@react-native-firebase/messaging';
 const App = () => {
+  
+  messaging().getToken()
+  .then(fcmToken => {
+    if (fcmToken) {
+      console.log(fcmToken)
+    } else {
+      // user doesn't have a device token yet
+      console.log('ee')
+    } 
+  });
+  //  messaging().onMessage(remoteMessage => {
+  //     console.log('FCM Message Data:', remoteMessage);
+ 
+  //     // Update a users messages list using AsyncStorage
+  //     //const currentMessages = await AsyncStorage.getItem('messages');
+  //     // const messageArray = JSON.parse(currentMessages);
+  //     // messageArray.push(remoteMessage.data);
+  //     //await AsyncStorage.setItem('messages', JSON.stringify(messageArray));
+  //   });
+ 
+  
   return (
     <NavigationApp/>
   );
