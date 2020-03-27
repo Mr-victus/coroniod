@@ -37,17 +37,6 @@ const App = () => {
       console.log('ee')
     } 
   });
-  //  messaging().onMessage(remoteMessage => {
-  //     console.log('FCM Message Data:', remoteMessage);
- 
-  //     // Update a users messages list using AsyncStorage
-  //     //const currentMessages = await AsyncStorage.getItem('messages');
-  //     // const messageArray = JSON.parse(currentMessages);
-  //     // messageArray.push(remoteMessage.data);
-  //     //await AsyncStorage.setItem('messages', JSON.stringify(messageArray));
-  //   });
- 
-  
   return (
     <NavigationApp/>
   );
