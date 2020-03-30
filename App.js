@@ -26,12 +26,20 @@ import {
 import NavigationApp from './Navigation/navigation';
 import messaging from '@react-native-firebase/messaging';
 import { firebase } from '@react-native-firebase/messaging';
+import database from '@react-native-firebase/database';
 const App = () => {
   
   messaging().getToken()
-  .then(fcmToken => {
+  .then(async fcmToken => {
     if (fcmToken) {
       console.log(fcmToken)
+      const ref = database().ref(`/users/saswath`);
+ 
+  await ref.set({
+    fcmToken,
+    name: 'Saswath phone',
+    role: 'admin',
+  });
     } else {
       // user doesn't have a device token yet
       console.log('ee')
